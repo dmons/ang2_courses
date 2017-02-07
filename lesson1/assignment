@@ -1,0 +1,15 @@
+All modules should live inside `app` folder
+
+1) Create `http` module which exports the following objects:
+
+interface `RequestParams` with string parameters `method` and `query`, with `query` parameter being optional
+interface `Response` with string parameters `status` and `data`, with `data` parameter being optional
+interface `ResponseCallback` that defines a callable type which accepts parameter of `Response` type and returns nothing
+class Http which:
+    accepts `URI` of string type as a parameter with default value `http://google.com` and assigns it to `private URI` property
+    has `request` method which accepts two parameters: `params` of `RequestParams` type and `callback` of `ResponseCallback` type
+    inside the method it creates `response` object with status equal to `300` and calls `callback` with the response
+
+
+2) Create `main` module which imports and creates an instance of `Http` class and calls its `request` method
+    passing `RequestParams` and `ResponseCallback` parameters. The callback should log the status of the response
